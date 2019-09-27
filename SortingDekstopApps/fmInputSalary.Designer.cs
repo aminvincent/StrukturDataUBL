@@ -109,8 +109,10 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.txtTotal.Location = new System.Drawing.Point(68, 103);
+            this.txtTotal.BackColor = System.Drawing.Color.LightGray;
+            this.txtTotal.Enabled = false;
+            this.txtTotal.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtTotal.Location = new System.Drawing.Point(78, 103);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(231, 20);
             this.txtTotal.TabIndex = 8;
@@ -120,28 +122,28 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 106);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Total";
+            this.label4.Text = "Total (auto)";
             // 
             // cbEmployee
             // 
             this.cbEmployee.BackColor = System.Drawing.Color.AntiqueWhite;
             this.cbEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEmployee.FormattingEnabled = true;
-            this.cbEmployee.Location = new System.Drawing.Point(68, 24);
+            this.cbEmployee.Location = new System.Drawing.Point(78, 24);
             this.cbEmployee.Name = "cbEmployee";
             this.cbEmployee.Size = new System.Drawing.Size(231, 21);
             this.cbEmployee.TabIndex = 6;
-            this.cbEmployee.SelectedIndexChanged += new System.EventHandler(this.CbEmployee_SelectedIndexChanged);
             // 
             // txtTax
             // 
             this.txtTax.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.txtTax.Location = new System.Drawing.Point(68, 77);
+            this.txtTax.Location = new System.Drawing.Point(78, 77);
             this.txtTax.Name = "txtTax";
             this.txtTax.Size = new System.Drawing.Size(231, 20);
             this.txtTax.TabIndex = 5;
+            this.txtTax.TextChanged += new System.EventHandler(this.TxtTax_TextChanged);
             // 
             // label3
             // 
@@ -155,10 +157,11 @@
             // txtSalary
             // 
             this.txtSalary.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.txtSalary.Location = new System.Drawing.Point(68, 51);
+            this.txtSalary.Location = new System.Drawing.Point(78, 51);
             this.txtSalary.Name = "txtSalary";
             this.txtSalary.Size = new System.Drawing.Size(231, 20);
             this.txtSalary.TabIndex = 3;
+            this.txtSalary.TextChanged += new System.EventHandler(this.TxtSalary_TextChanged);
             // 
             // label2
             // 

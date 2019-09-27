@@ -18,6 +18,10 @@ namespace SortingDekstopApps
 
             //calling load employee in constructor
             LoadEmployee();
+
+            //System.Text.RegularExpressions.Regex.IsMatch(txtTax.Text, "[ ^ 0-9]");
+            //System.Text.RegularExpressions.Regex.IsMatch(txtSalary.Text, "[ ^ 0-9]");
+
         }
 
         public void LoadEmployee()
@@ -110,9 +114,41 @@ namespace SortingDekstopApps
             }
         }
 
-        private void CbEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        private int CalcTotal(int a = 0, int b = 0)
         {
+            return a - b;
+        }
 
+        private void TxtTax_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                txtTotal.Text = CalcTotal(txtSalary.Text == string.Empty ? 0 : Convert.ToInt32(txtSalary.Text), txtTax.Text == string.Empty ? 0 : Convert.ToInt32(txtTax.Text)).ToString();
+            }
+            catch (Exception ex)
+            {
+                txtTax.Text = "0";
+                if (ex.Message.ToString().Contains("Input string was not in a correct format."))
+                    MessageBox.Show("Only Number is Allowed!");
+                else
+                    MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void TxtSalary_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                txtTotal.Text = CalcTotal(txtSalary.Text == string.Empty ? 0 : Convert.ToInt32(txtSalary.Text), txtTax.Text == string.Empty ? 0 : Convert.ToInt32(txtTax.Text)).ToString();
+            }
+            catch (Exception ex)
+            {
+                txtSalary.Text = "0";
+                if (ex.Message.ToString().Contains("Input string was not in a correct format."))
+                    MessageBox.Show("Only Number is Allowed!");
+                else
+                    MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

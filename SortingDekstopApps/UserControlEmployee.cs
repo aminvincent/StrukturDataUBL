@@ -77,11 +77,26 @@ namespace SortingDekstopApps
                     int index = dataGridMaster.SelectedCells[0].RowIndex;
                     string code = (string)dataGridMaster["Code", index].Value;
 
-                    DialogResult msg = MessageBox.Show("Do you want to delete this data?", "Confirmation", MessageBoxButtons.YesNo);
-                    if (msg == DialogResult.Yes)
+                    bool found = false;
+                    var checkExist = SalaryProcessor.loadCsvFileSalary(SalaryProcessor.pathSalary);
+                    foreach (var item in checkExist)
                     {
-                        if (MasterProcessor.RemoveItemOnList(code, MasterProcessor.loadCsvFileEmployee(MasterProcessor.pathEmployee)))
-                            MessageBox.Show("Delete data successfull!");
+                        if (item.EmpCode.Trim().ToLower() == code.Trim().ToLower())
+                            found = true;
+                    }
+
+                    if (!found)
+                    {
+                        DialogResult msg = MessageBox.Show("Do you want to delete this data?", "Confirmation", MessageBoxButtons.YesNo);
+                        if (msg == DialogResult.Yes)
+                        {
+                            if (MasterProcessor.RemoveItemOnList(code, MasterProcessor.loadCsvFileEmployee(MasterProcessor.pathEmployee)))
+                                MessageBox.Show("Delete data successfull!");
+                        } 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sorry! This data cannot be Delete, It is Relate to another!");
                     }
                 }
             }
@@ -115,7 +130,7 @@ namespace SortingDekstopApps
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
-        {
+        {           
             RemoveItem();
         }
 

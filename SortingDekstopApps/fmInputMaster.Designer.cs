@@ -109,6 +109,8 @@
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(231, 20);
             this.txtAge.TabIndex = 5;
+            //this.txtAge.TextChanged += new System.EventHandler(this.TxtAge_TextChanged);
+            //this.txtAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtAge_KeyPress);
             // 
             // label3
             // 
